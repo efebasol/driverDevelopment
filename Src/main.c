@@ -18,10 +18,30 @@
 
 #include "stm32f446xx.h"
 
+static void GPIO_LedConfig();
+
 int main(void)
 {
-    
+	GPIO_LedConfig();
+
+	GPIO_WritePin(GPIOB, GPIO_PIN_0 | GPIO_PIN_7 | GPIO_PIN_14, GPIO_Pin_Set);
 
     /* Loop forever */
 	for(;;);
+}
+
+static void GPIO_LedConfig()
+{
+	GPIO_InitTypeDef_t GPIO_LedStruct = { 0 };
+
+	RCC_GPIOB_CLK_ENABLE();		/* Clock is active */
+
+	GPIO_LedStruct.pinNumber = GPIO_PIN_0 | GPIO_PIN_7 | GPIO_PIN_14;
+	GPIO_LedStruct.Mode = GPIO_MODE_OUTPUT;
+	GPIO_LedStruct.Speed = GPIO_OSPEED_LOW;
+	GPIO_LedStruct.Otype = GPIO_OTYPE_PP;
+	GPIO_LedStruct.PuPd = GPIO_PUPD_NOPULL;
+
+	GPIO_Inıt(GPIOB, &GPIO_LedStruct);
+
 }
