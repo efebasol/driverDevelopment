@@ -117,3 +117,4 @@ void GPIO_LockPin ( GPIO_TypeDef_t *GPIOx, uint16_t pinNumber )
 	GPIOx->LCKR = tempValue;		/* LCKR[16] = '1'	LCKR[15:0] = DATA */
 	tempValue = GPIOx->LCKR;		/* Read Lock Register 				  */
 }
+
