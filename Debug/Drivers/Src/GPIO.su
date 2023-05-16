@@ -1,0 +1,4 @@
+../Drivers/Src/GPIO.c:10:6:GPIO_Inıt	32	static
+../Drivers/Src/GPIO.c:64:6:GPIO_WritePin	16	static
+../Drivers/Src/GPIO.c:83:17:GPIO_ReadPin	24	static
+../Drivers/Src/GPIO.c:102:6:GPIO_LockPin	24	static
