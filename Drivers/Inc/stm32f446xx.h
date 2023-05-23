@@ -39,22 +39,34 @@
  * APB1 Peripheral Base Address
  */
 
-#define TIM2_BASE_ADDR						(APB1_BASE_ADDR + 0x0000UL)		/* Timer2 Base address		*/
-#define TIM3_BASE_ADDR						(APB1_BASE_ADDR + 0x0400UL)		/* Timer3 Base address		*/
-#define TIM4_BASE_ADDR						(APB1_BASE_ADDR + 0x0800UL)		/* Timer4 Base address		*/
-
-#define SPI2_BASE_ADDR 						(APB1_BASE_ADDR + 0x3800UL) 	/* SPI2 Base address		*/
-#define SPI3_BASE_ADDR 						(APB1_BASE_ADDR + 0x3C00UL) 	/* SPI3 Base address		*/
-
-#define USART2_BASE_ADDR 					(APB1_BASE_ADDR + 0x4400UL)		/* USART2 Base address		*/
-#define USART3_BASE_ADDR 					(APB1_BASE_ADDR + 0x4800UL)		/* USART3 Base address 		*/
-
-#define UART4_BASE_ADDR 					(APB1_BASE_ADDR + 0x4C00UL)		/* UART4 Base address		*/
-#define UART5_BASE_ADDR 					(APB1_BASE_ADDR + 0x5000UL)		/* UART5 Base address		*/
-
-#define I2C1_BASE_ADDR						(APB1_BASE_ADDR + 0x5400UL)		/* I2C1 Base address		*/
-#define I2C2_BASE_ADDR						(APB1_BASE_ADDR + 0x5800UL)		/* I2C2 Base address		*/
-#define I2C3_BASE_ADDR						(APB1_BASE_ADDR + 0x5C00UL)		/* I2C3 Base address		*/
+#define TIM2_BASE_ADDR						(APB1_BASE_ADDR + 0x0000UL)
+#define TIM3_BASE_ADDR          		    (APB1_BASE_ADDR + 0x0400UL)
+#define TIM4_BASE_ADDR 			            (APB1_BASE_ADDR + 0x0800UL)
+#define TIM5_BASE_ADDR 			            (APB1_BASE_ADDR + 0x0C00UL)
+#define TIM6_BASE_ADDR 			            (APB1_BASE_ADDR + 0x1000UL)
+#define TIM7_BASE_ADDR  		            (APB1_BASE_ADDR + 0x1400UL)
+#define TIM12_BASE_ADDR        		        (APB1_BASE_ADDR + 0x1800UL)
+#define TIM13_BASE_ADDR    			        (APB1_BASE_ADDR + 0x1C00UL)
+#define TIM14_BASE_ADDR     		        (APB1_BASE_ADDR + 0x2000UL)
+#define RTC_BASE_ADDR      			        (APB1_BASE_ADDR + 0x2800UL)
+#define WWDG_BASE_ADDR             			(APB1_BASE_ADDR + 0x2C00UL)
+#define IWDG_BASE_ADDR             			(APB1_BASE_ADDR + 0x3000UL)
+#define SPI2_BASE_ADDR             			(APB1_BASE_ADDR + 0x3800UL)
+#define SPI3_BASE_ADDR             			(APB1_BASE_ADDR + 0x3C00UL)
+#define SPDIFRX_BASE_ADDR          			(APB1_BASE_ADDR + 0x4000UL)
+#define USART2_BASE_ADDR          			(APB1_BASE_ADDR + 0x4400UL)
+#define USART3_BASE_ADDR           			(APB1_BASE_ADDR + 0x4800UL)
+#define UART4_BASE_ADDR            			(APB1_BASE_ADDR + 0x4C00UL)
+#define UART5_BASE_ADDR            			(APB1_BASE_ADDR + 0x5000UL)
+#define I2C1_BASE_ADDR             			(APB1_BASE_ADDR + 0x5400UL)
+#define I2C2_BASE_ADDR             			(APB1_BASE_ADDR + 0x5800UL)
+#define I2C3_BASE_ADDR             			(APB1_BASE_ADDR + 0x5C00UL)
+#define FMPI2C1_BASE_ADDR          			(APB1_BASE_ADDR + 0x6000UL)
+#define CAN1_BASE_ADDR             			(APB1_BASE_ADDR + 0x6400UL)
+#define CAN2_BASE_ADDR             			(APB1_BASE_ADDR + 0x6800UL)
+#define CEC_BASE_ADDR              			(APB1_BASE_ADDR + 0x6C00UL)
+#define PWR_BASE_ADDR              			(APB1_BASE_ADDR + 0x7000UL)
+#define DAC_BASE_ADDR              			(APB1_BASE_ADDR + 0x7400UL)
 
 /*
  * APB2 Peripheral Base Address
@@ -62,15 +74,27 @@
 
 #define TIM1_BASE_ADDR 						(APB2_BASE_ADDR + 0x0000UL)		/* TIM1 Base address	*/
 #define TIM8_BASE_ADDR 						(APB2_BASE_ADDR + 0x0400UL)		/* TIM8 Base address	*/
-
 #define USART1_BASE_ADDR 					(APB2_BASE_ADDR + 0x1000UL)		/* USART1 Base address	*/
 #define USART6_BASE_ADDR 					(APB2_BASE_ADDR + 0x1400UL)		/* USART6 Base address	*/
-
+#define ADC1_BASE_ADDR             			(APB2_BASE_ADDR + 0x2000UL)
+#define ADC2_BASE_ADDR             			(APB2_BASE_ADDR + 0x2100UL)
+#define ADC3_BASE_ADDR             			(APB2_BASE_ADDR + 0x2200UL)
+#define ADC123_COMMON_BASE_ADDR    			(APB2_BASE_ADDR + 0x2300UL)
+#define ADC_BASE_ADDR          				(ADC123_COMMON_BASE)
+#define SDIO_BASE_ADDR         				(APB2_BASE_ADDR + 0x2C00UL)
 #define SPI1_BASE_ADDR 						(APB2_BASE_ADDR + 0x3400UL)		/* SPI1 Base address	*/
 #define SPI4_BASE_ADDR 						(APB2_BASE_ADDR + 0x3400UL)		/* SPI4 Base address	*/
-
 #define SYSCFG_BASE_ADDR 					(APB2_BASE_ADDR + 0x3800UL)		/* SYSCFG Base address	*/
 #define EXTI_BASE_ADDR 						(APB2_BASE_ADDR + 0x3C00UL)		/* EXTI Base address	*/
+#define TIM9_BASE_ADDR						(APB2_BASE_ADDR + 0x4000UL)
+#define TIM10_BASE_ADDR						(APB2_BASE_ADDR + 0x4400UL)
+#define TIM11_BASE_ADDR						(APB2_BASE_ADDR + 0x4800UL)
+#define SAI1_BASE_ADDR            			(APB2_BASE_ADDR + 0x5800UL)
+#define SAI1_Block_A_BASE_ADDR     			(SAI1_BASE_ADDR + 0x004UL)
+#define SAI1_Block_B_BASE_ADDR     			(SAI1_BASE_ADDR + 0x024UL)
+#define SAI2_BASE_ADDR            			(APB2_BASE_ADDR + 0x5C00UL)
+#define SAI2_Block_A_BASE_ADDR     			(SAI2_BASE_ADDR + 0x004UL)
+#define SAI2_Block_B_BASE_ADDR			    (SAI2_BASE_ADDR + 0x024UL)
 
 /*
  * AHB1 Peripheral Base Address
@@ -84,8 +108,27 @@
 #define GPIOF_BASE_ADDR						(AHB1_BASE_ADDR + 0x1400UL)  	/* GPIOF Base address	*/
 #define GPIOG_BASE_ADDR						(AHB1_BASE_ADDR + 0x1800UL)  	/* GPIOG Base address	*/
 #define GPIOH_BASE_ADDR						(AHB1_BASE_ADDR + 0x1C00UL)  	/* GPIOH Base address	*/
-
-#define RCC_BASE_ADDR						(AHB1_BASE_ADDR + 0x3800UL)		/* RCC Base Address 	*/
+#define CRC_BASE_ADDR              			(AHB1_BASE_ADDR + 0x3000UL)
+#define RCC_BASE_ADDR              			(AHB1_BASE_ADDR + 0x3800UL)
+#define FLASH_R_BASE_ADDR    			    (AHB1_BASE_ADDR + 0x3C00UL)
+#define DMA1_BASE_ADDR             			(AHB1_BASE_ADDR + 0x6000UL)
+#define DMA1_Stream0_BASE_ADDR     			(DMA1_BASE_ADDR + 0x010UL)
+#define DMA1_Stream1_BASE_ADDR     			(DMA1_BASE_ADDR + 0x028UL)
+#define DMA1_Stream2_BASE_ADDR     			(DMA1_BASE_ADDR + 0x040UL)
+#define DMA1_Stream3_BASE_ADDR     			(DMA1_BASE_ADDR + 0x058UL)
+#define DMA1_Stream4_BASE_ADDR     			(DMA1_BASE_ADDR + 0x070UL)
+#define DMA1_Stream5_BASE_ADDR     			(DMA1_BASE_ADDR + 0x088UL)
+#define DMA1_Stream6_BASE_ADDR     			(DMA1_BASE_ADDR + 0x0A0UL)
+#define DMA1_Stream7_BASE_ADDR     			(DMA1_BASE_ADDR + 0x0B8UL)
+#define DMA2_BASE_ADDR             			(AHB1_BASE_ADDR + 0x6400UL)
+#define DMA2_Stream0_BASE_ADDR     			(DMA1_BASE_ADDR + 0x010UL)
+#define DMA2_Stream1_BASE_ADDR     			(DMA1_BASE_ADDR + 0x028UL)
+#define DMA2_Stream2_BASE_ADDR     			(DMA1_BASE_ADDR + 0x040UL)
+#define DMA2_Stream3_BASE_ADDR     			(DMA1_BASE_ADDR + 0x058UL)
+#define DMA2_Stream4_BASE_ADDR    			(DMA1_BASE_ADDR + 0x070UL)
+#define DMA2_Stream5_BASE_ADDR    			(DMA1_BASE_ADDR + 0x088UL)
+#define DMA2_Stream6_BASE_ADDR     			(DMA1_BASE_ADDR + 0x0A0UL)
+#define DMA2_Stream7_BASE_ADDR     			(DMA1_BASE_ADDR + 0x0B8UL)
 
 /*
  * Peripheral Structure Definitions

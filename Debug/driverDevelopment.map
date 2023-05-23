@@ -67,11 +67,11 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x103 ./Drivers/Src/RCC.o
  .debug_macro   0x0000000000000000       0x6a ./Drivers/Src/RCC.o
  .debug_macro   0x0000000000000000      0x1df ./Drivers/Src/RCC.o
- .debug_macro   0x0000000000000000      0x18b ./Drivers/Src/RCC.o
+ .debug_macro   0x0000000000000000      0x1eb ./Drivers/Src/RCC.o
  .debug_macro   0x0000000000000000       0xb8 ./Drivers/Src/RCC.o
  .debug_macro   0x0000000000000000       0x34 ./Drivers/Src/RCC.o
  .debug_line    0x0000000000000000      0x40d ./Drivers/Src/RCC.o
- .debug_str     0x0000000000000000     0x4dd8 ./Drivers/Src/RCC.o
+ .debug_str     0x0000000000000000     0x50a9 ./Drivers/Src/RCC.o
  .comment       0x0000000000000000       0x51 ./Drivers/Src/RCC.o
  .ARM.attributes
                 0x0000000000000000       0x2e ./Drivers/Src/RCC.o
@@ -95,7 +95,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x103 ./Src/main.o
  .debug_macro   0x0000000000000000       0x6a ./Src/main.o
  .debug_macro   0x0000000000000000      0x1df ./Src/main.o
- .debug_macro   0x0000000000000000      0x18b ./Src/main.o
+ .debug_macro   0x0000000000000000      0x1eb ./Src/main.o
  .debug_macro   0x0000000000000000       0x34 ./Src/main.o
  .group         0x0000000000000000        0xc ./Src/syscalls.o
  .group         0x0000000000000000        0xc ./Src/syscalls.o
@@ -667,7 +667,7 @@ LOAD /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.id
  .debug_ranges  0x0000000000000028       0x18 ./Src/main.o
  .debug_ranges  0x0000000000000040       0x20 ./Startup/startup_stm32f446zetx.o
 
-.debug_macro    0x0000000000000000     0x1324
+.debug_macro    0x0000000000000000     0x1384
  .debug_macro   0x0000000000000000       0x9a ./Drivers/Src/GPIO.o
  .debug_macro   0x000000000000009a      0xa78 ./Drivers/Src/GPIO.o
  .debug_macro   0x0000000000000b12       0x22 ./Drivers/Src/GPIO.o
@@ -676,23 +676,23 @@ LOAD /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.id
  .debug_macro   0x0000000000000c13      0x103 ./Drivers/Src/GPIO.o
  .debug_macro   0x0000000000000d16       0x6a ./Drivers/Src/GPIO.o
  .debug_macro   0x0000000000000d80      0x1df ./Drivers/Src/GPIO.o
- .debug_macro   0x0000000000000f5f      0x18b ./Drivers/Src/GPIO.o
- .debug_macro   0x00000000000010ea       0x34 ./Drivers/Src/GPIO.o
- .debug_macro   0x000000000000111e       0xb8 ./Drivers/Src/GPIO.o
- .debug_macro   0x00000000000011d6       0x90 ./Src/main.o
- .debug_macro   0x0000000000001266       0xbe ./Src/main.o
+ .debug_macro   0x0000000000000f5f      0x1eb ./Drivers/Src/GPIO.o
+ .debug_macro   0x000000000000114a       0x34 ./Drivers/Src/GPIO.o
+ .debug_macro   0x000000000000117e       0xb8 ./Drivers/Src/GPIO.o
+ .debug_macro   0x0000000000001236       0x90 ./Src/main.o
+ .debug_macro   0x00000000000012c6       0xbe ./Src/main.o
 
 .debug_line     0x0000000000000000      0xa0e
  .debug_line    0x0000000000000000      0x540 ./Drivers/Src/GPIO.o
  .debug_line    0x0000000000000540      0x44a ./Src/main.o
  .debug_line    0x000000000000098a       0x84 ./Startup/startup_stm32f446zetx.o
 
-.debug_str      0x0000000000000000     0x4f3c
- .debug_str     0x0000000000000000     0x4dbc ./Drivers/Src/GPIO.o
-                                       0x4f29 (size before relaxing)
- .debug_str     0x0000000000004dbc      0x14f ./Src/main.o
-                                       0x5000 (size before relaxing)
- .debug_str     0x0000000000004f0b       0x31 ./Startup/startup_stm32f446zetx.o
+.debug_str      0x0000000000000000     0x520d
+ .debug_str     0x0000000000000000     0x508d ./Drivers/Src/GPIO.o
+                                       0x51fa (size before relaxing)
+ .debug_str     0x000000000000508d      0x14f ./Src/main.o
+                                       0x52d1 (size before relaxing)
+ .debug_str     0x00000000000051dc       0x31 ./Startup/startup_stm32f446zetx.o
                                          0x77 (size before relaxing)
 
 .comment        0x0000000000000000       0x50
