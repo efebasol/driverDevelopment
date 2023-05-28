@@ -2,3 +2,4 @@
 ../Drivers/Src/GPIO.c:73:6:GPIO_WritePin	16	static
 ../Drivers/Src/GPIO.c:92:17:GPIO_ReadPin	24	static
 ../Drivers/Src/GPIO.c:111:6:GPIO_LockPin	24	static
+../Drivers/Src/GPIO.c:128:6:GPIO_TogglePin	24	static

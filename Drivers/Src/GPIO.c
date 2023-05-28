@@ -102,7 +102,7 @@ GPIO_PinState_t GPIO_ReadPin ( GPIO_TypeDef_t *GPIOx, uint16_t pinNumber )
 }
 
 /*
- * @brief  GPIO_Lock_Pin, locks the pin of GPIOx Port
+ * @brief  GPIO_LockPin, locks the pin of GPIOx Port
  * @param  GPIOx = GPIO Port Base Address
  * @param  pinNumber = GPIO Pin Numbers 0 - 15
  * @retval Void
@@ -117,3 +117,30 @@ void GPIO_LockPin ( GPIO_TypeDef_t *GPIOx, uint16_t pinNumber )
 	GPIOx->LCKR = tempValue;		/* LCKR[16] = '1'	LCKR[15:0] = DATA */
 	tempValue = GPIOx->LCKR;		/* Read Lock Register 				  */
 }
+
+/*
+ * @brief  GPIO_TogglePin, toggle the pin of GPIOx Port
+ * @param  GPIOx = GPIO Port Base Address
+ * @param  pinNumber = GPIO Pin Numbers 0 - 15
+ * @retval Void
+ */
+
+void GPIO_TogglePin ( GPIO_TypeDef_t *GPIOx, uint16_t pinNumber )
+{
+	uint32_t tempODRRegister = GPIOx->ODR;
+
+	GPIOx->BSRR = ( (tempODRRegister & pinNumber) << 16U ) | (~tempODRRegister & pinNumber);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

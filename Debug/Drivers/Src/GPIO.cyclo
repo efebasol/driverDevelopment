@@ -2,3 +2,4 @@ GPIO.c:17:6:GPIO_Inıt	5
 GPIO.c:73:6:GPIO_WritePin	2
 GPIO.c:92:17:GPIO_ReadPin	2
 GPIO.c:111:6:GPIO_LockPin	1
+GPIO.c:128:6:GPIO_TogglePin	1

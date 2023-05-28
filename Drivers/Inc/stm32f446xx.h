@@ -76,8 +76,8 @@
 #define TIM8_BASE_ADDR 						(APB2_BASE_ADDR + 0x0400UL)		/* TIM8 Base address	*/
 #define USART1_BASE_ADDR 					(APB2_BASE_ADDR + 0x1000UL)		/* USART1 Base address	*/
 #define USART6_BASE_ADDR 					(APB2_BASE_ADDR + 0x1400UL)		/* USART6 Base address	*/
-#define ADC1_BASE_ADDR             			(APB2_BASE_ADDR + 0x2000UL)
-#define ADC2_BASE_ADDR             			(APB2_BASE_ADDR + 0x2100UL)
+#define ADC1_BASE_ADDR            			(APB2_BASE_ADDR + 0x2000UL)
+#define ADC2_BASE_ADDR     					(APB2_BASE_ADDR + 0x2100UL)
 #define ADC3_BASE_ADDR             			(APB2_BASE_ADDR + 0x2200UL)
 #define ADC123_COMMON_BASE_ADDR    			(APB2_BASE_ADDR + 0x2300UL)
 #define ADC_BASE_ADDR          				(ADC123_COMMON_BASE)
