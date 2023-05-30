@@ -9,6 +9,7 @@
 #define INC_STM32F446XX_H_
 
 #include <stdint.h>
+#include <string.h>
 
 #define __IO volatile
 #define SET_BIT(REG, BIT)					( (REG) |= (BIT) )
