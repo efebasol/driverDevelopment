@@ -18,48 +18,30 @@
 
 #include "stm32f446xx.h"
 
-static void GPIO_Config();
+static void GPIO_LedConfig();
 
 int main(void)
 {
-	GPIO_Config();
-	//GPIO_Config( GPIOB, GPIO_PIN_0 | GPIO_PIN_7 | GPIO_PIN_14, GPIO_Pin_Set );
+	GPIO_LedConfig();
+
+	GPIO_WritePin(GPIOB, GPIO_PIN_0 | GPIO_PIN_7 | GPIO_PIN_14, GPIO_Pin_Set);
 
     /* Loop forever */
-	for(;;)
-	{
-		if ( GPIO_ReadPin( GPIOC, GPIO_PIN_13) == GPIO_Pin_Set )
-		{
-			GPIO_WritePin( GPIOB, GPIO_PIN_0 | GPIO_PIN_7 | GPIO_PIN_14, GPIO_Pin_Set );
-		}
-		else
-		{
-			GPIO_WritePin( GPIOB, GPIO_PIN_0 | GPIO_PIN_7 | GPIO_PIN_14, GPIO_Pin_Reset );
-		}
-	}
+	for(;;);
 }
 
-static void GPIO_Config()
+static void GPIO_LedConfig()
 {
-	GPIO_InitTypeDef_t GPIO_InitStruct = { 0 };
+	GPIO_InitTypeDef_t GPIO_LedStruct = { 0 };
 
-	RCC_GPIOB_CLK_ENABLE();		/* Clock B is active */
-	RCC_GPIOC_CLK_ENABLE(); 	/* Clock C is active */
+	RCC_GPIOB_CLK_ENABLE();		/* Clock is active */
 
-	GPIO_InitStruct.pinNumber = GPIO_PIN_0 | GPIO_PIN_7 | GPIO_PIN_14;
-	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT;
-	GPIO_InitStruct.Speed = GPIO_OSPEED_LOW;
-	GPIO_InitStruct.Otype = GPIO_OTYPE_PP;
-	GPIO_InitStruct.PuPd = GPIO_PUPD_NOPULL;
+	GPIO_LedStruct.pinNumber = GPIO_PIN_0 | GPIO_PIN_7 | GPIO_PIN_14;
+	GPIO_LedStruct.Mode = GPIO_MODE_OUTPUT;
+	GPIO_LedStruct.Speed = GPIO_OSPEED_LOW;
+	GPIO_LedStruct.Otype = GPIO_OTYPE_PP;
+	GPIO_LedStruct.PuPd = GPIO_PUPD_NOPULL;
 
-	GPIO_Init(GPIOB, &GPIO_InitStruct);
-
-	memset( &GPIO_InitStruct, 0, sizeof(GPIO_InitStruct) );
-
-	GPIO_InitStruct.pinNumber = GPIO_PIN_13;
-	GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-	GPIO_InitStruct.PuPd = GPIO_PUPD_PULLDOWN;
-
-	GPIO_Init(GPIOC, &GPIO_InitStruct);
+	GPIO_Inıt(GPIOB, &GPIO_LedStruct);
 
 }

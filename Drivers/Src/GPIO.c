@@ -14,7 +14,7 @@
  * @retval Void
  */
 
-void GPIO_Init ( GPIO_TypeDef_t *GPIOx, GPIO_InitTypeDef_t *GPIO_ConfigStruct )
+void GPIO_Inıt ( GPIO_TypeDef_t *GPIOx, GPIO_InitTypeDef_t *GPIO_ConfigStruct )
 {
 	uint32_t positon, fakePosition = 0, lastPosition = 0;
 	uint32_t tempValue;
