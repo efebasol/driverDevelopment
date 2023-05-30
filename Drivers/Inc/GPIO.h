@@ -9,6 +9,8 @@
 #define INC_GPIO_H_
 
 #include "stm32f446xx.h"
+#include <string.h>
+
 
 /*
  * @def_group GPIO_Pins
@@ -81,7 +83,7 @@ typedef struct
 
 }GPIO_InitTypeDef_t;
 
-void GPIO_Inıt ( GPIO_TypeDef_t *GPIOx, GPIO_InitTypeDef_t *GPIO_ConfigStruct );
+void GPIO_Init ( GPIO_TypeDef_t *GPIOx, GPIO_InitTypeDef_t *GPIO_ConfigStruct );
 void GPIO_WritePin ( GPIO_TypeDef_t *GPIOx, uint16_t pinNumber, GPIO_PinState_t pinState );
 GPIO_PinState_t GPIO_ReadPin ( GPIO_TypeDef_t *GPIOx, uint16_t pinNumber );
 void GPIO_LockPin ( GPIO_TypeDef_t *GPIOx, uint16_t pinNumber );
