@@ -84,8 +84,8 @@
 #define SDIO_BASE_ADDR         				(APB2_BASE_ADDR + 0x2C00UL)
 #define SPI1_BASE_ADDR 						(APB2_BASE_ADDR + 0x3400UL)		/* SPI1 Base address	*/
 #define SPI4_BASE_ADDR 						(APB2_BASE_ADDR + 0x3400UL)		/* SPI4 Base address	*/
-#define SYSCFG_BASE_ADDR 					(APB2_BASE_ADDR + 0x3800UL)		/* SYSCFG Base address	*/
-#define EXTI_BASE_ADDR 						(APB2_BASE_ADDR + 0x3C00UL)		/* EXTI Base address	*/
+#define SYSCFG_BASE_ADDR 					(APB2_BASE_ADDR + 0x3800UL)		/* Interrupt Register SYSCFG Base address	*/
+#define EXTI_BASE_ADDR 						(APB2_BASE_ADDR + 0x3C00UL)		/* Interrupt Register EXTI Base address	*/
 #define TIM9_BASE_ADDR						(APB2_BASE_ADDR + 0x4000UL)
 #define TIM10_BASE_ADDR						(APB2_BASE_ADDR + 0x4400UL)
 #define TIM11_BASE_ADDR						(APB2_BASE_ADDR + 0x4800UL)
@@ -218,15 +218,39 @@ typedef struct
 #define RCC_AHB1ENR_GPIODEN_Mask			(0x01 << RCC_AHB1ENR_GPIODEN_Pos)				/* RCC AHB1ENR register GPIODEN Bit Mask 			offset = 0x00000003 */
 #define RCC_AHB1ENR_GPIODEN					RCC_AHB1ENR_GPIODEN_Mask						/* RCC AHBIENR register GPIODEN Macro */
 
+/*
+ *	SYSCFG Register Structure Definitions
+ */
 
+typedef struct
+{
+	__IO uint32_t MEMRMP;					/*!< SYSCFG memory remap register 						Address offset: 0x00			*/
+	__IO uint32_t PMC;						/*!< SYSCFG peripheral mode configuration register		Address offset: 0x04			*/
+	__IO uint32_t EXTICR[4];				/*!< SYSCFG external interrupt configuration register 	Address offset: 0x08-0C-10-14	*/
+	__IO uint32_t CMPCR;					/*!< Compensation cell control register					Address offset: 0x20 			*/
+	__IO uint32_t CFGR;						/*!< SYSCFG configuration register						Address offset: 0x2C			*/
+}SYSCFG_TypeDef_t;
 
+#define SYSCFG								( (SYSCFG_TypeDef_t *)(SYSCFG_BASE_ADDR) )
 
+/*
+ *	EXTI Register Structure Definitions
+ */
 
+typedef struct
+{
+	__IO uint32_t IMR;						/*!< Interrupt mask register 							Address offset: 0x00 */
+	__IO uint32_t EMR;						/*!< Event mask register								Address offset: 0x04 */
+	__IO uint32_t RTSR;						/*!< Rising trigger selection register					Address offset: 0x08 */
+	__IO uint32_t FTSR;						/*!< Falling trigger selection register					Address offset: 0x0C */
+	__IO uint32_t SWIER;					/*!< Software interrupt event register					Address offset: 0x10 */
+	__IO uint32_t PR;						/*!< Pending register									Address offset: 0x14 */
+}EXTI_TypeDef_t;
 
-
-
+#define EXTI								( (EXTI_TypeDef_t *)(EXTI_BASE_ADDR) )
 
 #include "RCC.h"
 #include "GPIO.h"
+#include "EXTI.h"
 
 #endif /* INC_STM32F446XX_H_ */

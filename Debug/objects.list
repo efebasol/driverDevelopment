@@ -1,3 +1,4 @@
+"./Drivers/Src/EXTI.o"
 "./Drivers/Src/GPIO.o"
 "./Drivers/Src/RCC.o"
 "./Src/main.o"
