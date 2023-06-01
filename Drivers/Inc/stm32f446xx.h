@@ -219,6 +219,14 @@ typedef struct
 #define RCC_AHB1ENR_GPIODEN					RCC_AHB1ENR_GPIODEN_Mask						/* RCC AHBIENR register GPIODEN Macro */
 
 /*
+ * Bit definition for RCC_APB2ENR register
+ */
+
+#define RCC_APB2ENR_SYSCFG_POS				(14UL)											/* RCC AHB2 register SYSCFG Bit Position */
+#define RCC_APB2ENR_SYSCFG_Mask				(0x1UL << RCC_APB2ENR_SYSCFG_POS)					/* RCC AHB2 register SYSCFG Bit Mask */
+#define RCC_APB2ENR_SYSCFGEN				RCC_APB2ENR_SYSCFG_Mask							/* RCC AHB2 register SYSCFG Macro */
+
+/*
  *	SYSCFG Register Structure Definitions
  */
 

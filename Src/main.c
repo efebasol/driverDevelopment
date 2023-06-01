@@ -51,6 +51,7 @@ static void GPIO_Config()
 
 	RCC_GPIOB_CLK_ENABLE();		/* Clock B is active */
 	RCC_GPIOC_CLK_ENABLE();		/* Clock C is active */
+	RCC_SYSCFG_CLK_ENABLE();	/* Clock SYSCFG is active */
 
 	GPIO_InitStruct.pinNumber = GPIO_PIN_0 | GPIO_PIN_7 | GPIO_PIN_14;
 	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT;
@@ -67,6 +68,8 @@ static void GPIO_Config()
 	GPIO_InitStruct.PuPd = GPIO_PUPD_PULLDOWN;
 
 	GPIO_Init(GPIOC, &GPIO_InitStruct);
+
+	EXTI_LineConfig(EXTI_PortSource_GPIOC, EXTI_LineSource_7);
 }
 
 static void LockControl()
