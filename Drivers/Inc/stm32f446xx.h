@@ -16,6 +16,12 @@
 #define READ_BIT(REG, BIT)					( (REG) & (BIT) )
 #define UNUSED(x)							(void)x
 
+typedef enum
+{
+	DISABLE = 0x0U,
+	ENABLE = !DISABLE
+}FunctionalState_t;
+
 /*
  * Memory Base Address
  */

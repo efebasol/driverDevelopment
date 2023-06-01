@@ -1,1 +1,2 @@
-EXTI.c:17:6:EXTI_LineConfig	1
+EXTI.c:16:6:EXTI_Init	3
+EXTI.c:64:6:EXTI_LineConfig	1

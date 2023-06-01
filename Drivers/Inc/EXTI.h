@@ -44,6 +44,30 @@
 #define EXTI_LineSource_14						( (uint8_t)(0xE) )
 #define EXTI_LineSource_15						( (uint8_t)(0xF) )
 
+/*
+ * EXTI_Trigger_Modes
+ */
+
+#define EXTI_Trigger_Rising						( 0x08U )
+#define EXTI_trigger_Falling					( 0x0CU )
+#define EXTI_Trigger_RF							( 0x10U )
+
+/*
+ * @def_group EXTI_Modes
+ */
+
+#define EXTI_MODE_Interrupt						( 0x00U )
+#define EXTI_MODE_Event							( 0x04U )
+
+typedef struct
+{
+	FunctionalState_t EXTI_LineCmd;				/*!< Mask or Unmask the line number 									*/
+	uint8_t EXTI_LineNumber;					/*!< EXTI line number for valid GPIO pin @def _group EXTI_Line _Values 	*/
+	uint8_t TriggerSelection;					/*!< EXTI Trigger seleciton @def_group EXTI_Trigger_Modes				*/
+	uint8_t EXTI_Mode;							/*!< EXTI Mode values @def_group EXTI_Modes 							*/
+}EXTI_InitTypeDef_t;
+
+void EXTI_Init( EXTI_InitTypeDef_t *EXTI_InitStruct );
 void EXTI_LineConfig ( uint8_t PortSource, uint8_t EXTI_LineSource );
 
 #endif /* INC_EXTI_H_ */

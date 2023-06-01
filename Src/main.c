@@ -20,12 +20,13 @@
 
 static void GPIO_Config();
 static void LockControl();
+static void GPIO_ButtonInterruptConfig();
 
 int main(void)
 {
 	GPIO_Config();
-
 	GPIO_LockPin(GPIOC, GPIO_PIN_13);
+	GPIO_ButtonInterruptConfig();
 
 	LockControl();
 
@@ -69,7 +70,6 @@ static void GPIO_Config()
 
 	GPIO_Init(GPIOC, &GPIO_InitStruct);
 
-	EXTI_LineConfig(EXTI_PortSource_GPIOC, EXTI_LineSource_7);
 }
 
 static void LockControl()
@@ -81,4 +81,18 @@ static void LockControl()
 	GPIO_InitStruct.PuPd = GPIO_PUPD_NOPULL;
 
 	GPIO_Init(GPIOC, &GPIO_InitStruct);
+}
+
+static void GPIO_ButtonInterruptConfig()
+{
+	EXTI_InitTypeDef_t EXTI_InitStruct = { 0 };
+
+	EXTI_LineConfig(EXTI_PortSource_GPIOC, EXTI_LineSource_10);
+
+	EXTI_InitStruct.EXTI_LineCmd = ENABLE;
+	EXTI_InitStruct.EXTI_LineNumber = EXTI_LineSource_10;
+	EXTI_InitStruct.EXTI_Mode = EXTI_MODE_Interrupt;
+	EXTI_InitStruct.TriggerSelection = EXTI_Trigger_Rising;
+
+	EXTI_Init(&EXTI_InitStruct);
 }
