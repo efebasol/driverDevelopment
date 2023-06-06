@@ -9,6 +9,13 @@
 #define INC_STM32F446XX_H_
 
 #include <stdint.h>
+#include <string.h>
+
+/*
+ * Microprocessor Defines
+ */
+
+#define NVIC_ISER0							( (uint32_t*)(0xE000E100) )
 
 #define __IO volatile
 #define SET_BIT(REG, BIT)					( (REG) |= (BIT) )
@@ -21,6 +28,21 @@ typedef enum
 	DISABLE = 0x0U,
 	ENABLE = !DISABLE
 }FunctionalState_t;
+
+/*
+ * IRQ Numbers of MCU == Vector Table
+ */
+
+typedef enum
+{
+	EXTI0_IRQNumber = 6,
+	EXTI1_IRQNumber = 7,
+	EXTI2_IRQNumber = 8,
+	EXTI3_IRQNumber = 9,
+	EXTI4_IRQNumber = 10,
+	EXTI9_5_IRQNumber = 23,
+	EXTI15_10_IRQNumber = 40
+}IRQNumber_TypeDef_t;
 
 /*
  * Memory Base Address

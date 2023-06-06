@@ -71,3 +71,19 @@ void EXTI_LineConfig ( uint8_t PortSource, uint8_t EXTI_LineSource )
 
 	SYSCFG->EXTICR[EXTI_LineSource >> 2U] = tempValue;
 }
+
+/*
+ * @brief  NVIC_EnableInterrupt
+ * @param  IRQNumber = IRQ Number of line
+ * @retval Void
+ */
+
+void NVIC_EnableInterrupt ( IRQNumber_TypeDef_t IRQNumber )
+{
+	uint32_t tempValue = 0;
+
+	tempValue = *( (IRQNumber >> 5U) + NVIC_ISER0 );
+	tempValue &= ~( 0x1U << (IRQNumber & 0x1FU) );
+	tempValue |= ( 0x1U << (IRQNumber & 0x1FU) );
+	*( (IRQNumber >> 5U) + NVIC_ISER0 ) = tempValue;
+}

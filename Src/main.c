@@ -22,27 +22,25 @@ static void GPIO_Config();
 static void LockControl();
 static void GPIO_ButtonInterruptConfig();
 
+void EXTI15_10_IRQHandler()
+{
+	if ( EXTI->PR & (1 << 13) )
+	{
+		EXTI->PR |= ( 0x1U << 13U );
+
+		GPIO_WritePin(GPIOB, GPIO_PIN_All, GPIO_Pin_Set);
+	}
+}
+
 int main(void)
 {
 	GPIO_Config();
-	GPIO_LockPin(GPIOC, GPIO_PIN_13);
 	GPIO_ButtonInterruptConfig();
-
-	LockControl();
-
-	//GPIO_WritePin( GPIOB, GPIO_PIN_0 | GPIO_PIN_7 | GPIO_PIN_14, GPIO_Pin_Set );
 
     /* Loop forever */
 	for(;;)
 	{
-		if ( GPIO_ReadPin( GPIOC, GPIO_PIN_13 ) == GPIO_Pin_Set )
-		{
-			GPIO_WritePin( GPIOB, GPIO_PIN_0 | GPIO_PIN_7 | GPIO_PIN_14, GPIO_Pin_Set );
-		}
-		else
-		{
-			GPIO_WritePin( GPIOB, GPIO_PIN_0 | GPIO_PIN_7 | GPIO_PIN_14, GPIO_Pin_Reset );
-		}
+
 	}
 }
 
@@ -52,7 +50,6 @@ static void GPIO_Config()
 
 	RCC_GPIOB_CLK_ENABLE();		/* Clock B is active */
 	RCC_GPIOC_CLK_ENABLE();		/* Clock C is active */
-	RCC_SYSCFG_CLK_ENABLE();	/* Clock SYSCFG is active */
 
 	GPIO_InitStruct.pinNumber = GPIO_PIN_0 | GPIO_PIN_7 | GPIO_PIN_14;
 	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT;
@@ -87,12 +84,15 @@ static void GPIO_ButtonInterruptConfig()
 {
 	EXTI_InitTypeDef_t EXTI_InitStruct = { 0 };
 
-	EXTI_LineConfig(EXTI_PortSource_GPIOC, EXTI_LineSource_10);
+	RCC_SYSCFG_CLK_ENABLE();	/* Clock SYSCFG is active */
+	EXTI_LineConfig(EXTI_PortSource_GPIOC, EXTI_LineSource_13);
 
 	EXTI_InitStruct.EXTI_LineCmd = ENABLE;
-	EXTI_InitStruct.EXTI_LineNumber = EXTI_LineSource_10;
+	EXTI_InitStruct.EXTI_LineNumber = EXTI_LineSource_13;
 	EXTI_InitStruct.EXTI_Mode = EXTI_MODE_Interrupt;
 	EXTI_InitStruct.TriggerSelection = EXTI_Trigger_Rising;
 
 	EXTI_Init(&EXTI_InitStruct);
+
+	NVIC_EnableInterrupt(EXTI15_10_IRQNumber);
 }

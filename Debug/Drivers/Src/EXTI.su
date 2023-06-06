@@ -1,2 +1,3 @@
 ../Drivers/Src/EXTI.c:16:6:EXTI_Init	24	static
 ../Drivers/Src/EXTI.c:64:6:EXTI_LineConfig	24	static
+../Drivers/Src/EXTI.c:81:6:NVIC_EnableInterrupt	24	static
