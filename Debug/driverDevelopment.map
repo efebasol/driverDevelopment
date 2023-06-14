@@ -184,7 +184,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0xb8 ./Drivers/Src/RCC.o
  .debug_macro   0x0000000000000000       0x70 ./Drivers/Src/RCC.o
  .debug_line    0x0000000000000000      0x596 ./Drivers/Src/RCC.o
- .debug_str     0x0000000000000000     0x94fa ./Drivers/Src/RCC.o
+ .debug_str     0x0000000000000000     0x950c ./Drivers/Src/RCC.o
  .comment       0x0000000000000000       0x51 ./Drivers/Src/RCC.o
  .ARM.attributes
                 0x0000000000000000       0x2e ./Drivers/Src/RCC.o
@@ -897,14 +897,14 @@ LOAD /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.id
  .debug_line    0x0000000000000dcb      0x62e ./Src/main.o
  .debug_line    0x00000000000013f9       0x84 ./Startup/startup_stm32f446zetx.o
 
-.debug_str      0x0000000000000000     0x97d9
- .debug_str     0x0000000000000000     0x94cc ./Drivers/Src/EXTI.o
-                                       0x96ce (size before relaxing)
- .debug_str     0x00000000000094cc      0x158 ./Drivers/Src/GPIO.o
-                                       0x9669 (size before relaxing)
- .debug_str     0x0000000000009624      0x184 ./Src/main.o
-                                       0x98c3 (size before relaxing)
- .debug_str     0x00000000000097a8       0x31 ./Startup/startup_stm32f446zetx.o
+.debug_str      0x0000000000000000     0x97eb
+ .debug_str     0x0000000000000000     0x94de ./Drivers/Src/EXTI.o
+                                       0x96e0 (size before relaxing)
+ .debug_str     0x00000000000094de      0x158 ./Drivers/Src/GPIO.o
+                                       0x967b (size before relaxing)
+ .debug_str     0x0000000000009636      0x184 ./Src/main.o
+                                       0x98d5 (size before relaxing)
+ .debug_str     0x00000000000097ba       0x31 ./Startup/startup_stm32f446zetx.o
                                          0x77 (size before relaxing)
 
 .comment        0x0000000000000000       0x50
