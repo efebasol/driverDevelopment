@@ -1,6 +1,7 @@
 "./Drivers/Src/EXTI.o"
 "./Drivers/Src/GPIO.o"
 "./Drivers/Src/RCC.o"
+"./Drivers/Src/SPI.o"
 "./Src/main.o"
 "./Src/syscalls.o"
 "./Src/sysmem.o"
