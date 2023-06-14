@@ -79,8 +79,8 @@ typedef enum
 #define RTC_BASE_ADDR      			        (APB1_BASE_ADDR + 0x2800UL)
 #define WWDG_BASE_ADDR             			(APB1_BASE_ADDR + 0x2C00UL)
 #define IWDG_BASE_ADDR             			(APB1_BASE_ADDR + 0x3000UL)
-#define SPI2_BASE_ADDR             			(APB1_BASE_ADDR + 0x3800UL)
-#define SPI3_BASE_ADDR             			(APB1_BASE_ADDR + 0x3C00UL)
+#define SPI2_BASE_ADDR             			(APB1_BASE_ADDR + 0x3800UL)		/* SPI2 Base address	*/
+#define SPI3_BASE_ADDR             			(APB1_BASE_ADDR + 0x3C00UL)		/* SPI3 Base address	*/
 #define SPDIFRX_BASE_ADDR          			(APB1_BASE_ADDR + 0x4000UL)
 #define USART2_BASE_ADDR          			(APB1_BASE_ADDR + 0x4400UL)
 #define USART3_BASE_ADDR           			(APB1_BASE_ADDR + 0x4800UL)
@@ -284,6 +284,28 @@ typedef struct
 }EXTI_TypeDef_t;
 
 #define EXTI								( (EXTI_TypeDef_t *)(EXTI_BASE_ADDR) )
+
+/*
+ * SPI Register Structure Definitions
+ */
+
+typedef struct
+{
+	__IO uint32_t CR1;						/*!< SPI control register 1 				not used in I2S mode			Address offset: 0x00*/
+	__IO uint32_t CR2;						/*!< SPI control register 2 												Address offset: 0x04*/
+	__IO uint32_t SR;						/*!< SPI status register													Address offset: 0x08*/
+	__IO uint32_t DR;						/*!< SPI data register														Address offset: 0x0C*/
+	__IO uint32_t CRCPR;					/*!< SPI CRC polynomial register			not used in I2S mode			Address offset: 0x0C*/
+	__IO uint32_t RXCRCR;					/*!< SPI RX CRC register					not used in I2S mode			Address offset: 0x14*/
+	__IO uint32_t TXCRCR;					/*!< SPI TX CRC register					not used in I2S mode			Address offset: 0x18*/
+	__IO uint32_t I2SCFGR;					/*!< SPI_I2S configuration register											Address offset: 0x1C*/
+	__IO uint32_t I2SPR;					/*!< SPI_I2S prescaler register												Address offset: 0x20*/
+}SPI_TypeDef_t;
+
+#define SPI1 								( (SPI_TypeDef_t*)(SPI1_BASE_ADDR) )
+#define SPI2 								( (SPI_TypeDef_t*)(SPI2_BASE_ADDR) )
+#define SPI3 								( (SPI_TypeDef_t*)(SPI3_BASE_ADDR) )
+#define SPI4 								( (SPI_TypeDef_t*)(SPI4_BASE_ADDR) )
 
 #include "RCC.h"
 #include "GPIO.h"
