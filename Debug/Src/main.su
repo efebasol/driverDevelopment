@@ -2,4 +2,4 @@
 ../Src/main.c:35:5:main	8	static
 ../Src/main.c:47:13:GPIO_Config	40	static
 ../Src/main.c:72:13:GPIO_ButtonInterruptConfig	16	static
-../Src/main.c:89:6:SPI_Config	40	static
+../Src/main.c:89:13:SPI_Config	48	static
