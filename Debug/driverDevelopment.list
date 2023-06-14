@@ -27,23 +27,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  11 .ARM.attributes 0000002a  00000000  00000000  00010744  2**0
                   CONTENTS, READONLY
- 12 .debug_info   00000ce3  00000000  00000000  0001076e  2**0
+ 12 .debug_info   00000e44  00000000  00000000  0001076e  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 13 .debug_abbrev 000003c7  00000000  00000000  00011451  2**0
+ 13 .debug_abbrev 000003e1  00000000  00000000  000115b2  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_aranges 000000d0  00000000  00000000  00011818  2**3
+ 14 .debug_aranges 000000d8  00000000  00000000  00011998  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_ranges 00000098  00000000  00000000  000118e8  2**3
+ 15 .debug_ranges 000000a0  00000000  00000000  00011a70  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_macro  000022ac  00000000  00000000  00011980  2**0
+ 16 .debug_macro  000022ac  00000000  00000000  00011b10  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   0000147d  00000000  00000000  00013c2c  2**0
+ 17 .debug_line   00001499  00000000  00000000  00013dbc  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    000097eb  00000000  00000000  000150a9  2**0
+ 18 .debug_str    00009888  00000000  00000000  00015255  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000050  00000000  00000000  0001e894  2**0
+ 19 .comment      00000050  00000000  00000000  0001eadd  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  0000023c  00000000  00000000  0001e8e4  2**2
+ 20 .debug_frame  00000260  00000000  00000000  0001eb30  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -607,9 +607,9 @@ void GPIO_WritePin ( GPIO_TypeDef_t *GPIOx, uint16_t pinNumber, GPIO_PinState_t 
 	...
 
 08000538 <EXTI15_10_IRQHandler>:
-
 static void GPIO_Config();
 static void GPIO_ButtonInterruptConfig();
+void SPI_Config();
 
 void EXTI15_10_IRQHandler()
 {
