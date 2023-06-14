@@ -19,7 +19,6 @@
 #include "stm32f446xx.h"
 
 static void GPIO_Config();
-static void LockControl();
 static void GPIO_ButtonInterruptConfig();
 
 void EXTI15_10_IRQHandler()
@@ -67,17 +66,6 @@ static void GPIO_Config()
 
 	GPIO_Init(GPIOC, &GPIO_InitStruct);
 
-}
-
-static void LockControl()
-{
-	GPIO_InitTypeDef_t GPIO_InitStruct = { 0 };
-
-	GPIO_InitStruct.pinNumber = GPIO_PIN_13;
-	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT;
-	GPIO_InitStruct.PuPd = GPIO_PUPD_NOPULL;
-
-	GPIO_Init(GPIOC, &GPIO_InitStruct);
 }
 
 static void GPIO_ButtonInterruptConfig()
