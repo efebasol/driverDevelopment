@@ -18,10 +18,69 @@
 
 #include "stm32f446xx.h"
 
+static void GPIO_Config();
+static void GPIO_ButtonInterruptConfig();
+
+void EXTI15_10_IRQHandler()
+{
+	if ( EXTI->PR & (1 << 13) )
+	{
+		EXTI->PR |= ( 0x1U << 13U );
+
+		GPIO_WritePin(GPIOB, GPIO_PIN_All, GPIO_Pin_Set);
+	}
+}
+
 int main(void)
 {
-    
+	GPIO_Config();
+	GPIO_ButtonInterruptConfig();
 
     /* Loop forever */
-	for(;;);
+	for(;;)
+	{
+
+	}
+}
+
+static void GPIO_Config()
+{
+	GPIO_InitTypeDef_t GPIO_InitStruct = { 0 };
+
+	RCC_GPIOB_CLK_ENABLE();		/* Clock B is active */
+	RCC_GPIOC_CLK_ENABLE();		/* Clock C is active */
+
+	GPIO_InitStruct.pinNumber = GPIO_PIN_0 | GPIO_PIN_7 | GPIO_PIN_14;
+	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT;
+	GPIO_InitStruct.Speed = GPIO_OSPEED_LOW;
+	GPIO_InitStruct.Otype = GPIO_OTYPE_PP;
+	GPIO_InitStruct.PuPd = GPIO_PUPD_NOPULL;
+
+	GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+	memset( &GPIO_InitStruct, 0, sizeof(GPIO_InitStruct) );
+
+	GPIO_InitStruct.pinNumber = GPIO_PIN_13;
+	GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+	GPIO_InitStruct.PuPd = GPIO_PUPD_PULLDOWN;
+
+	GPIO_Init(GPIOC, &GPIO_InitStruct);
+
+}
+
+static void GPIO_ButtonInterruptConfig()
+{
+	EXTI_InitTypeDef_t EXTI_InitStruct = { 0 };
+
+	RCC_SYSCFG_CLK_ENABLE();	/* Clock SYSCFG is active */
+	EXTI_LineConfig(EXTI_PortSource_GPIOC, EXTI_LineSource_13);
+
+	EXTI_InitStruct.EXTI_LineCmd = ENABLE;
+	EXTI_InitStruct.EXTI_LineNumber = EXTI_LineSource_13;
+	EXTI_InitStruct.EXTI_Mode = EXTI_MODE_Interrupt;
+	EXTI_InitStruct.TriggerSelection = EXTI_Trigger_Rising;
+
+	EXTI_Init(&EXTI_InitStruct);
+
+	NVIC_EnableInterrupt(EXTI15_10_IRQNumber);
 }

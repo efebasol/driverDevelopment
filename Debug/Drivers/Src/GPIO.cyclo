@@ -1,4 +1,5 @@
-GPIO.c:10:6:GPIO_Inıt	5
-GPIO.c:64:6:GPIO_WritePin	2
-GPIO.c:83:17:GPIO_ReadPin	2
-GPIO.c:102:6:GPIO_LockPin	1
+GPIO.c:17:6:GPIO_Init	5
+GPIO.c:73:6:GPIO_WritePin	2
+GPIO.c:92:17:GPIO_ReadPin	2
+GPIO.c:111:6:GPIO_LockPin	1
+GPIO.c:128:6:GPIO_TogglePin	1
