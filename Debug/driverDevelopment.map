@@ -117,13 +117,8 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x10 ./Drivers/Src/GPIO.o
  .debug_macro   0x0000000000000000       0x35 ./Drivers/Src/GPIO.o
  .debug_macro   0x0000000000000000       0x20 ./Drivers/Src/GPIO.o
-<<<<<<< HEAD
- .debug_macro   0x0000000000000000      0x327 ./Drivers/Src/GPIO.o
- .debug_macro   0x0000000000000000       0x3a ./Drivers/Src/GPIO.o
-=======
  .debug_macro   0x0000000000000000      0x37b ./Drivers/Src/GPIO.o
  .debug_macro   0x0000000000000000       0x70 ./Drivers/Src/GPIO.o
->>>>>>> origin/efe
  .group         0x0000000000000000        0xc ./Drivers/Src/RCC.o
  .group         0x0000000000000000        0xc ./Drivers/Src/RCC.o
  .group         0x0000000000000000        0xc ./Drivers/Src/RCC.o
@@ -184,21 +179,12 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x10 ./Drivers/Src/RCC.o
  .debug_macro   0x0000000000000000       0x35 ./Drivers/Src/RCC.o
  .debug_macro   0x0000000000000000       0x20 ./Drivers/Src/RCC.o
-<<<<<<< HEAD
- .debug_macro   0x0000000000000000      0x327 ./Drivers/Src/RCC.o
- .debug_macro   0x0000000000000000       0xb8 ./Drivers/Src/RCC.o
- .debug_macro   0x0000000000000000       0xb8 ./Drivers/Src/RCC.o
- .debug_macro   0x0000000000000000       0x3a ./Drivers/Src/RCC.o
- .debug_line    0x0000000000000000      0x58d ./Drivers/Src/RCC.o
- .debug_str     0x0000000000000000     0x8ef9 ./Drivers/Src/RCC.o
-=======
  .debug_macro   0x0000000000000000      0x37b ./Drivers/Src/RCC.o
  .debug_macro   0x0000000000000000       0xb8 ./Drivers/Src/RCC.o
  .debug_macro   0x0000000000000000       0xb8 ./Drivers/Src/RCC.o
  .debug_macro   0x0000000000000000       0x70 ./Drivers/Src/RCC.o
  .debug_line    0x0000000000000000      0x596 ./Drivers/Src/RCC.o
- .debug_str     0x0000000000000000     0x94f6 ./Drivers/Src/RCC.o
->>>>>>> origin/efe
+ .debug_str     0x0000000000000000     0x94fa ./Drivers/Src/RCC.o
  .comment       0x0000000000000000       0x51 ./Drivers/Src/RCC.o
  .ARM.attributes
                 0x0000000000000000       0x2e ./Drivers/Src/RCC.o
@@ -272,13 +258,8 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x10 ./Src/main.o
  .debug_macro   0x0000000000000000       0x35 ./Src/main.o
  .debug_macro   0x0000000000000000       0x20 ./Src/main.o
-<<<<<<< HEAD
- .debug_macro   0x0000000000000000      0x327 ./Src/main.o
- .debug_macro   0x0000000000000000       0x3a ./Src/main.o
-=======
  .debug_macro   0x0000000000000000      0x37b ./Src/main.o
  .debug_macro   0x0000000000000000       0x70 ./Src/main.o
->>>>>>> origin/efe
  .debug_macro   0x0000000000000000       0xbe ./Src/main.o
  .debug_macro   0x0000000000000000       0xb8 ./Src/main.o
  .group         0x0000000000000000        0xc ./Src/syscalls.o
@@ -875,57 +856,6 @@ LOAD /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.id
  .debug_ranges  0x0000000000000050       0x28 ./Src/main.o
  .debug_ranges  0x0000000000000078       0x20 ./Startup/startup_stm32f446zetx.o
 
-<<<<<<< HEAD
-.debug_macro    0x0000000000000000     0x2201
- .debug_macro   0x0000000000000000      0x177 ./Drivers/Src/EXTI.o
- .debug_macro   0x0000000000000177      0xa78 ./Drivers/Src/EXTI.o
- .debug_macro   0x0000000000000bef       0x22 ./Drivers/Src/EXTI.o
- .debug_macro   0x0000000000000c11       0x8e ./Drivers/Src/EXTI.o
- .debug_macro   0x0000000000000c9f       0x51 ./Drivers/Src/EXTI.o
- .debug_macro   0x0000000000000cf0      0x103 ./Drivers/Src/EXTI.o
- .debug_macro   0x0000000000000df3       0x6a ./Drivers/Src/EXTI.o
- .debug_macro   0x0000000000000e5d      0x1df ./Drivers/Src/EXTI.o
- .debug_macro   0x000000000000103c       0x52 ./Drivers/Src/EXTI.o
- .debug_macro   0x000000000000108e       0x18 ./Drivers/Src/EXTI.o
- .debug_macro   0x00000000000010a6       0x3c ./Drivers/Src/EXTI.o
- .debug_macro   0x00000000000010e2       0x34 ./Drivers/Src/EXTI.o
- .debug_macro   0x0000000000001116      0x174 ./Drivers/Src/EXTI.o
- .debug_macro   0x000000000000128a       0x16 ./Drivers/Src/EXTI.o
- .debug_macro   0x00000000000012a0       0x43 ./Drivers/Src/EXTI.o
- .debug_macro   0x00000000000012e3       0x34 ./Drivers/Src/EXTI.o
- .debug_macro   0x0000000000001317       0x10 ./Drivers/Src/EXTI.o
- .debug_macro   0x0000000000001327       0x58 ./Drivers/Src/EXTI.o
- .debug_macro   0x000000000000137f       0x71 ./Drivers/Src/EXTI.o
- .debug_macro   0x00000000000013f0       0x1c ./Drivers/Src/EXTI.o
- .debug_macro   0x000000000000140c      0x12a ./Drivers/Src/EXTI.o
- .debug_macro   0x0000000000001536      0x341 ./Drivers/Src/EXTI.o
- .debug_macro   0x0000000000001877       0x10 ./Drivers/Src/EXTI.o
- .debug_macro   0x0000000000001887       0x35 ./Drivers/Src/EXTI.o
- .debug_macro   0x00000000000018bc       0x20 ./Drivers/Src/EXTI.o
- .debug_macro   0x00000000000018dc      0x327 ./Drivers/Src/EXTI.o
- .debug_macro   0x0000000000001c03       0x3a ./Drivers/Src/EXTI.o
- .debug_macro   0x0000000000001c3d       0xbe ./Drivers/Src/EXTI.o
- .debug_macro   0x0000000000001cfb       0xb2 ./Drivers/Src/EXTI.o
- .debug_macro   0x0000000000001dad      0x177 ./Drivers/Src/GPIO.o
- .debug_macro   0x0000000000001f24       0xb8 ./Drivers/Src/GPIO.o
- .debug_macro   0x0000000000001fdc       0xb8 ./Drivers/Src/GPIO.o
- .debug_macro   0x0000000000002094      0x16d ./Src/main.o
-
-.debug_line     0x0000000000000000     0x1462
- .debug_line    0x0000000000000000      0x6cf ./Drivers/Src/EXTI.o
- .debug_line    0x00000000000006cf      0x6ea ./Drivers/Src/GPIO.o
- .debug_line    0x0000000000000db9      0x625 ./Src/main.o
- .debug_line    0x00000000000013de       0x84 ./Startup/startup_stm32f446zetx.o
-
-.debug_str      0x0000000000000000     0x91d8
- .debug_str     0x0000000000000000     0x8ecb ./Drivers/Src/EXTI.o
-                                       0x90cd (size before relaxing)
- .debug_str     0x0000000000008ecb      0x158 ./Drivers/Src/GPIO.o
-                                       0x9068 (size before relaxing)
- .debug_str     0x0000000000009023      0x184 ./Src/main.o
-                                       0x92c2 (size before relaxing)
- .debug_str     0x00000000000091a7       0x31 ./Startup/startup_stm32f446zetx.o
-=======
 .debug_macro    0x0000000000000000     0x22ac
  .debug_macro   0x0000000000000000      0x182 ./Drivers/Src/EXTI.o
  .debug_macro   0x0000000000000182      0xa78 ./Drivers/Src/EXTI.o
@@ -961,21 +891,20 @@ LOAD /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.id
  .debug_macro   0x000000000000207c       0xb8 ./Drivers/Src/GPIO.o
  .debug_macro   0x0000000000002134      0x178 ./Src/main.o
 
-.debug_line     0x0000000000000000     0x149f
+.debug_line     0x0000000000000000     0x147d
  .debug_line    0x0000000000000000      0x6d8 ./Drivers/Src/EXTI.o
  .debug_line    0x00000000000006d8      0x6f3 ./Drivers/Src/GPIO.o
- .debug_line    0x0000000000000dcb      0x650 ./Src/main.o
- .debug_line    0x000000000000141b       0x84 ./Startup/startup_stm32f446zetx.o
+ .debug_line    0x0000000000000dcb      0x62e ./Src/main.o
+ .debug_line    0x00000000000013f9       0x84 ./Startup/startup_stm32f446zetx.o
 
-.debug_str      0x0000000000000000     0x97e1
- .debug_str     0x0000000000000000     0x94c8 ./Drivers/Src/EXTI.o
-                                       0x96ca (size before relaxing)
- .debug_str     0x00000000000094c8      0x158 ./Drivers/Src/GPIO.o
-                                       0x9665 (size before relaxing)
- .debug_str     0x0000000000009620      0x190 ./Src/main.o
-                                       0x98cb (size before relaxing)
- .debug_str     0x00000000000097b0       0x31 ./Startup/startup_stm32f446zetx.o
->>>>>>> origin/efe
+.debug_str      0x0000000000000000     0x97d9
+ .debug_str     0x0000000000000000     0x94cc ./Drivers/Src/EXTI.o
+                                       0x96ce (size before relaxing)
+ .debug_str     0x00000000000094cc      0x158 ./Drivers/Src/GPIO.o
+                                       0x9669 (size before relaxing)
+ .debug_str     0x0000000000009624      0x184 ./Src/main.o
+                                       0x98c3 (size before relaxing)
+ .debug_str     0x00000000000097a8       0x31 ./Startup/startup_stm32f446zetx.o
                                          0x77 (size before relaxing)
 
 .comment        0x0000000000000000       0x50
