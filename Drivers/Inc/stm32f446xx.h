@@ -307,6 +307,8 @@ typedef struct
 #define SPI3 								( (SPI_TypeDef_t*)(SPI3_BASE_ADDR) )
 #define SPI4 								( (SPI_TypeDef_t*)(SPI4_BASE_ADDR) )
 
+// test
+
 #include "RCC.h"
 #include "GPIO.h"
 #include "EXTI.h"
