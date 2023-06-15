@@ -23,11 +23,11 @@ static void GPIO_ButtonInterruptConfig();
 static void SPI_Config();
 static void SPI_GPIO_Config();
 
-
+SPI_HandleTypeDef_t SPI_Handle;
 
 void EXTI15_10_IRQHandler()
 {
-	char msgToSend = "Hello World!\n";
+	char msgToSend[] = "Hello World!\n";
 
 	if ( EXTI->PR & (1 << 13) )
 	{
@@ -96,7 +96,6 @@ static void GPIO_ButtonInterruptConfig()
 
 static void SPI_Config()
 {
-	SPI_HandleTypeDef_t SPI_Handle = { 0 };
 	RCC_SPI1_CLK_ENABLE();
 
 	SPI_Handle.Instance = SPI1;
