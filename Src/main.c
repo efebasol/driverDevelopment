@@ -33,7 +33,7 @@ void EXTI15_10_IRQHandler()
 	{
 		EXTI->PR |= ( 0x1U << 13U );
 
-		//SPI_TransmitData(&SPI_Handle, (uint8_t*)msgToSend, strlen(msgToSend));
+		SPI_TransmitData(&SPI_Handle, (uint8_t*)msgToSend, strlen(msgToSend));
 	}
 }
 

@@ -110,7 +110,7 @@ typedef enum
 #define ADC123_COMMON_BASE_ADDR    			(APB2_BASE_ADDR + 0x2300UL)
 #define ADC_BASE_ADDR          				(ADC123_COMMON_BASE)
 #define SDIO_BASE_ADDR         				(APB2_BASE_ADDR + 0x2C00UL)
-#define SPI1_BASE_ADDR 						(APB2_BASE_ADDR + 0x3400UL)		/* SPI1 Base address	*/
+#define SPI1_BASE_ADDR 						(APB2_BASE_ADDR + 0x3000UL)		/* SPI1 Base address	*/
 #define SPI4_BASE_ADDR 						(APB2_BASE_ADDR + 0x3400UL)		/* SPI4 Base address	*/
 #define SYSCFG_BASE_ADDR 					(APB2_BASE_ADDR + 0x3800UL)		/* Interrupt Register SYSCFG Base address	*/
 #define EXTI_BASE_ADDR 						(APB2_BASE_ADDR + 0x3C00UL)		/* Interrupt Register EXTI Base address	*/
