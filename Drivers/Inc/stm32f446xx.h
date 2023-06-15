@@ -265,11 +265,11 @@ typedef struct
  */
 
 #define RCC_APB1ENR_SPI2_Pos				(14UL)											/* RCC APB2 register SPI2EN Bit Position */
-#define RCC_APB1ENR_SPI2_Mask				(0x1U << RCC_APB1_SPI2_Pos)						/* RCC APB2 register SPI2EN Bit Mask */
-#define RCC_APB1ENR_SPI2EN					RCC_APB1_SPI2_Mask								/* RCC APB2 register SPI2EN Macro */
+#define RCC_APB1ENR_SPI2_Mask				(0x1U << RCC_APB1ENR_SPI2_Pos)						/* RCC APB2 register SPI2EN Bit Mask */
+#define RCC_APB1ENR_SPI2EN					RCC_APB1ENR_SPI2_Mask								/* RCC APB2 register SPI2EN Macro */
 #define RCC_APB1ENR_SPI3_Pos				(15UL)											/* RCC APB2 register SPI3EN Bit Position */
-#define RCC_APB1ENR_SPI3_Mask				(0x1U << RCC_APB1_SPI3_Pos)						/* RCC APB2 register SPI3EN Bit Mask */
-#define RCC_APB1ENR_SPI3EN					RCC_APB1_SPI3_Mask								/* RCC APB2 register SPI2EN Macro */
+#define RCC_APB1ENR_SPI3_Mask				(0x1U << RCC_APB1ENR_SPI3_Pos)						/* RCC APB2 register SPI3EN Bit Mask */
+#define RCC_APB1ENR_SPI3EN					RCC_APB1ENR_SPI3_Mask								/* RCC APB2 register SPI2EN Macro */
 
 /*
  *	SYSCFG Register Structure Definitions
