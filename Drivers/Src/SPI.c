@@ -23,3 +23,22 @@ void SPI_Init(SPI_HandleTypeDef_t *SPI_Handle)
 
 	SPI_Handle->Instance->CR1 = tempValue;
 }
+
+/*
+ * @brief  SPI_PerhiparelCMD, enable or disable SPI Peripherals
+ * @param  SPI_Handle = User config structure
+ * @param  stateOfSPI = enable or disable
+ * @retval Void
+ */
+
+void SPI_PerhiparelCMD(SPI_HandleTypeDef_t *SPI_Handle, FunctionalState_t stateOfSPI)
+{
+	if ( stateOfSPI == ENABLE )
+	{
+		SPI_Handle->Instance->CR1 |=  (0x1U << SPI_CR1_SPE);
+	}
+	else
+	{
+		SPI_Handle->Instance->CR1 &= ~(0x1U << SPI_CR1_SPE);
+	}
+}

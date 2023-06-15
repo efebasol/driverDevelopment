@@ -93,5 +93,6 @@ typedef struct
 }SPI_HandleTypeDef_t;
 
 void SPI_Init(SPI_HandleTypeDef_t *SPI_Handle);
+void SPI_PerhiparelCMD(SPI_HandleTypeDef_t *SPI_Handle, FunctionalState_t stateOfSPI);
 
 #endif /* INC_SPI_H_ */

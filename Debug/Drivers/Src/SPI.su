@@ -1,1 +1,2 @@
 ../Drivers/Src/SPI.c:16:6:SPI_Init	24	static
+../Drivers/Src/SPI.c:27:6:SPI_PerhiparelCMD	16	static
