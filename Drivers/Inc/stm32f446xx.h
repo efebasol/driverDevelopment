@@ -325,6 +325,15 @@ typedef struct
 #define SPI4 								( (SPI_TypeDef_t*)(SPI4_BASE_ADDR) )
 
 #define SPI_CR1_SPE							(6U)
+#define SPI_SR_TxE 							(1U)
+#define SPI_SR_BUSY							(7U)
+
+/*
+ * Flag Definitions
+ */
+
+#define SPI_TxE_Flag						(0x1U << SPI_SR_TxE)
+#define SPI_Busy_Flag						(0x1U << SPI_SR_BUSY)
 
 #include "RCC.h"
 #include "GPIO.h"

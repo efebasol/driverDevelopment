@@ -1,2 +1,4 @@
 SPI.c:16:6:SPI_Init	1
-SPI.c:27:6:SPI_PerhiparelCMD	2
+SPI.c:34:6:SPI_PerhiparelCMD	2
+SPI.c:54:6:SPI_TransmitData	7
+SPI.c:90:18:SPI_GetFlagStatus	1

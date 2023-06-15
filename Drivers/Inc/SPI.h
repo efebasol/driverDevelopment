@@ -74,6 +74,12 @@
 #define SPI_FRAMEFORMAT_MSB							( (uint32_t)(0x00000000) )
 #define SPI_FRAMEFORMAT_LSB							( (uint32_t)(0x00000080) )
 
+typedef enum
+{
+	SPI_FLAG_RESET = 0x0U,
+	SPI_FLAG_SET = !SPI_FLAG_RESET
+}SPI_FlagStatus_t;
+
 typedef struct
 {
 	uint32_t Mode;					/*!< Mode Values for SPI @def_group Mode_Values						*/
@@ -94,5 +100,7 @@ typedef struct
 
 void SPI_Init(SPI_HandleTypeDef_t *SPI_Handle);
 void SPI_PerhiparelCMD(SPI_HandleTypeDef_t *SPI_Handle, FunctionalState_t stateOfSPI);
+void SPI_TransmitData(SPI_HandleTypeDef_t *SPI_Handle, uint8_t *pData, uint16_t sizeOfData);
+SPI_FlagStatus_t SPI_GetFlagStatus(SPI_HandleTypeDef_t *SPI_Handle, uint16_t SPI_Flag);
 
 #endif /* INC_SPI_H_ */
