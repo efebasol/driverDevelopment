@@ -23,7 +23,6 @@ static void GPIO_ButtonInterruptConfig();
 static void SPI_Config();
 static void SPI_GPIO_Config();
 
-SPI_HandleTypeDef_t SPI_Handle;
 
 
 void EXTI15_10_IRQHandler()
@@ -34,7 +33,7 @@ void EXTI15_10_IRQHandler()
 	{
 		EXTI->PR |= ( 0x1U << 13U );
 
-		SPI_TransmitData(&SPI_Handle, (uint8_t*)msgToSend, strlen(msgToSend));
+		//SPI_TransmitData(&SPI_Handle, (uint8_t*)msgToSend, strlen(msgToSend));
 	}
 }
 
@@ -97,6 +96,7 @@ static void GPIO_ButtonInterruptConfig()
 
 static void SPI_Config()
 {
+	SPI_HandleTypeDef_t SPI_Handle = { 0 };
 	RCC_SPI1_CLK_ENABLE();
 
 	SPI_Handle.Instance = SPI1;
