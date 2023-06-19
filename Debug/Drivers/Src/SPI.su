@@ -1,4 +1,5 @@
 ../Drivers/Src/SPI.c:16:6:SPI_Init	24	static
 ../Drivers/Src/SPI.c:34:6:SPI_PerhiparelCMD	16	static
 ../Drivers/Src/SPI.c:54:6:SPI_TransmitData	24	static
-../Drivers/Src/SPI.c:90:18:SPI_GetFlagStatus	16	static
+../Drivers/Src/SPI.c:91:6:SPI_ReciveData	24	static
+../Drivers/Src/SPI.c:126:18:SPI_GetFlagStatus	16	static

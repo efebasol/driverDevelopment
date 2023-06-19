@@ -327,6 +327,7 @@ typedef struct
 #define SPI_CR1_SPE							(6U)
 #define SPI_SR_TxE 							(1U)
 #define SPI_SR_BUSY							(7U)
+#define SPI_SR_RxNE							(0U)
 
 /*
  * Flag Definitions
@@ -334,6 +335,7 @@ typedef struct
 
 #define SPI_TxE_Flag						(0x1U << SPI_SR_TxE)
 #define SPI_Busy_Flag						(0x1U << SPI_SR_BUSY)
+#define SPI_RxNE_Flag						(0x1U << SPI_SR_RxNE)
 
 #include "RCC.h"
 #include "GPIO.h"

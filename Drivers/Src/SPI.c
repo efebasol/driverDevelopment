@@ -81,6 +81,42 @@ void SPI_TransmitData(SPI_HandleTypeDef_t *SPI_Handle, uint8_t *pData, uint16_t 
 }
 
 /*
+ * @brief  SPI_ReciveData, Receive data from slave
+ * @param  SPI_Handle = User config structure
+ * @param  pBuffer = Address of data to store the values that I get
+ * @param  sizeOfData = Length of your data in bytes
+ * @retval Void
+ */
+
+void SPI_ReciveData(SPI_HandleTypeDef_t *SPI_Handle, uint8_t *pBuffer, uint16_t sizeOfData)
+{
+	if ( SPI_Handle->Init.DFF_Format == SPI_DFF_16BITS )
+	{
+		while ( sizeOfData > 0 )
+		{
+			if ( SPI_GetFlagStatus(SPI_Handle, SPI_RxNE_Flag) )
+			{
+				*( (uint16_t*)(pBuffer) ) = SPI_Handle->Instance->DR;
+				pBuffer += sizeof(uint16_t);
+				sizeOfData -= 2;
+			}
+		}
+	}
+	else
+	{
+		while ( sizeOfData > 0 )
+		{
+			if ( SPI_GetFlagStatus(SPI_Handle, SPI_RxNE_Flag) )
+			{
+				*(pBuffer) = *( ( __IO uint8_t*)(&SPI_Handle->Instance->DR) );
+				pBuffer += sizeof(uint8_t);
+				sizeOfData--;
+			}
+		}
+	}
+}
+
+/*
  * @brief  SPI_GetFlagStatus, Return the flag of SR register
  * @param  SPI_Handle = User config structure
  * @param  SPI_Flag = flag name of SR register
