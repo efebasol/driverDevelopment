@@ -10,6 +10,7 @@
 
 #include <stdint.h>
 #include <string.h>
+#include <stddef.h>
 
 /*
  * Microprocessor Defines
@@ -41,7 +42,8 @@ typedef enum
 	EXTI3_IRQNumber = 9,
 	EXTI4_IRQNumber = 10,
 	EXTI9_5_IRQNumber = 23,
-	EXTI15_10_IRQNumber = 40
+	EXTI15_10_IRQNumber = 40,
+	SPI1_IRQNumber = 35
 }IRQNumber_TypeDef_t;
 
 /*
@@ -110,7 +112,7 @@ typedef enum
 #define ADC123_COMMON_BASE_ADDR    			(APB2_BASE_ADDR + 0x2300UL)
 #define ADC_BASE_ADDR          				(ADC123_COMMON_BASE)
 #define SDIO_BASE_ADDR         				(APB2_BASE_ADDR + 0x2C00UL)
-#define SPI1_BASE_ADDR 						(APB2_BASE_ADDR + 0x3400UL)		/* SPI1 Base address	*/
+#define SPI1_BASE_ADDR 						(APB2_BASE_ADDR + 0x3000UL)		/* SPI1 Base address	*/
 #define SPI4_BASE_ADDR 						(APB2_BASE_ADDR + 0x3400UL)		/* SPI4 Base address	*/
 #define SYSCFG_BASE_ADDR 					(APB2_BASE_ADDR + 0x3800UL)		/* Interrupt Register SYSCFG Base address	*/
 #define EXTI_BASE_ADDR 						(APB2_BASE_ADDR + 0x3C00UL)		/* Interrupt Register EXTI Base address	*/
@@ -265,11 +267,11 @@ typedef struct
  */
 
 #define RCC_APB1ENR_SPI2_Pos				(14UL)											/* RCC APB2 register SPI2EN Bit Position */
-#define RCC_APB1ENR_SPI2_Mask				(0x1U << RCC_APB1_SPI2_Pos)						/* RCC APB2 register SPI2EN Bit Mask */
-#define RCC_APB1ENR_SPI2EN					RCC_APB1_SPI2_Mask								/* RCC APB2 register SPI2EN Macro */
+#define RCC_APB1ENR_SPI2_Mask				(0x1U << RCC_APB1ENR_SPI2_Pos)						/* RCC APB2 register SPI2EN Bit Mask */
+#define RCC_APB1ENR_SPI2EN					RCC_APB1ENR_SPI2_Mask								/* RCC APB2 register SPI2EN Macro */
 #define RCC_APB1ENR_SPI3_Pos				(15UL)											/* RCC APB2 register SPI3EN Bit Position */
-#define RCC_APB1ENR_SPI3_Mask				(0x1U << RCC_APB1_SPI3_Pos)						/* RCC APB2 register SPI3EN Bit Mask */
-#define RCC_APB1ENR_SPI3EN					RCC_APB1_SPI3_Mask								/* RCC APB2 register SPI2EN Macro */
+#define RCC_APB1ENR_SPI3_Mask				(0x1U << RCC_APB1ENR_SPI3_Pos)						/* RCC APB2 register SPI3EN Bit Mask */
+#define RCC_APB1ENR_SPI3EN					RCC_APB1ENR_SPI3_Mask								/* RCC APB2 register SPI2EN Macro */
 
 /*
  *	SYSCFG Register Structure Definitions
@@ -323,6 +325,21 @@ typedef struct
 #define SPI2 								( (SPI_TypeDef_t*)(SPI2_BASE_ADDR) )
 #define SPI3 								( (SPI_TypeDef_t*)(SPI3_BASE_ADDR) )
 #define SPI4 								( (SPI_TypeDef_t*)(SPI4_BASE_ADDR) )
+
+#define SPI_CR1_SPE							(6U)
+#define SPI_CR1_DFF							(11U)
+#define SPI_CR2_TXEIE						(7U)
+#define SPI_SR_TxE 							(1U)
+#define SPI_SR_BUSY							(7U)
+#define SPI_SR_RxNE							(0U)
+
+/*
+ * Flag Definitions
+ */
+
+#define SPI_TxE_Flag						(0x1U << SPI_SR_TxE)
+#define SPI_Busy_Flag						(0x1U << SPI_SR_BUSY)
+#define SPI_RxNE_Flag						(0x1U << SPI_SR_RxNE)
 
 #include "RCC.h"
 #include "GPIO.h"

@@ -21,21 +21,34 @@
 static void GPIO_Config();
 static void GPIO_ButtonInterruptConfig();
 static void SPI_Config();
+static void SPI_GPIO_Config();
+
+SPI_HandleTypeDef_t SPI_Handle;
 
 void EXTI15_10_IRQHandler()
 {
+	char msgToSend[] = "Hello World!\n";
+
 	if ( EXTI->PR & (1 << 13) )
 	{
 		EXTI->PR |= ( 0x1U << 13U );
 
-		GPIO_WritePin(GPIOB, GPIO_PIN_All, GPIO_Pin_Set);
+		SPI_TransmitData_IT(&SPI_Handle, (uint8_t*)msgToSend, strlen(msgToSend));
 	}
+}
+
+void SPI1_IRQHandler()
+{
+	SPI_InterruptHandler(&SPI_Handle);
 }
 
 int main(void)
 {
 	GPIO_Config();
 	GPIO_ButtonInterruptConfig();
+	SPI_GPIO_Config();
+	SPI_Config();
+
 
     /* Loop forever */
 	for(;;)
@@ -88,8 +101,35 @@ static void GPIO_ButtonInterruptConfig()
 
 static void SPI_Config()
 {
-	SPI_HandleTypeDef_t SPI_Handle = { 0 };
+	RCC_SPI1_CLK_ENABLE();
 
+	SPI_Handle.Instance = SPI1;
+	SPI_Handle.Init.BaudRate = SPI_BAUDRATE_DIV8;
+	SPI_Handle.Init.BusConfig = SPI_BUS_FULLDUPLEX;
+	SPI_Handle.Init.CPHA = SPI_CPHA_FIRST;
+	SPI_Handle.Init.CPOL = SPI_CPOL_LOW;
+	SPI_Handle.Init.DFF_Format = SPI_DFF_8BITS;
+	SPI_Handle.Init.FrameFormat = SPI_FRAMEFORMAT_MSB;
+	SPI_Handle.Init.Mode = SPI_MODE_MASTER;
+	SPI_Handle.Init.SSM_Cmd = SPI_SSM_ENABLE;
 
 	SPI_Init(&SPI_Handle);
+	NVIC_EnableInterrupt(SPI1_IRQNumber);
+
+	SPI_PerhiparelCMD(&SPI_Handle, ENABLE);
+}
+
+static void SPI_GPIO_Config()
+{
+	GPIO_InitTypeDef_t GPIO_InitStruct = { 0 };
+	RCC_GPIOA_CLK_ENABLE(); // Clock A is active
+
+	GPIO_InitStruct.pinNumber = GPIO_PIN_5 | GPIO_PIN_7; // PA5: SCK, PA7: MOSI
+	GPIO_InitStruct.Mode = GPIO_MODE_AF;
+	GPIO_InitStruct.Otype = GPIO_OTYPE_PP;
+	GPIO_InitStruct.PuPd = GPIO_PUPD_NOPULL;
+	GPIO_InitStruct.Speed = GPIO_OSPEED_FAST;
+	GPIO_InitStruct.Alternate = GPIO_AF5;
+
+	GPIO_Init(GPIOA, &GPIO_InitStruct);
 }

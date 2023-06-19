@@ -58,6 +58,15 @@ void GPIO_Init ( GPIO_TypeDef_t *GPIOx, GPIO_InitTypeDef_t *GPIO_ConfigStruct )
 			tempValue |=  ( GPIO_ConfigStruct->PuPd << ( positon * 2 ) );
 			GPIOx->PUPDR = tempValue;
 
+			/* Alternative Function CONFIG */
+
+			if ( GPIO_ConfigStruct->Mode == GPIO_MODE_AF )
+			{
+				tempValue = GPIOx->AFR[positon >> 3U];
+				tempValue &= ~(0xFU << ( (positon & 0x7U) * 4 ) );
+				tempValue |= ( GPIO_ConfigStruct->Alternate << ( (positon & 0x7U) * 4 ) );
+				GPIOx->AFR[positon >> 3U] = tempValue;
+			}
 		}
 	}
 }

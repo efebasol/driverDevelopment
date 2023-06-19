@@ -10,6 +10,13 @@
 
 #include "stm32f446xx.h"
 
+typedef enum
+{
+	SPI_BUS_FREE = 0X0U,
+	SPI_BUS_BUSY_TX = 0X1U,
+	SPI_BUS_BUSY_RX = 0X2U
+}SPI_BusStatus_t;
+
 /*
  * @def_group Mode_Values
  */
@@ -74,6 +81,12 @@
 #define SPI_FRAMEFORMAT_MSB							( (uint32_t)(0x00000000) )
 #define SPI_FRAMEFORMAT_LSB							( (uint32_t)(0x00000080) )
 
+typedef enum
+{
+	SPI_FLAG_RESET = 0x0U,
+	SPI_FLAG_SET = !SPI_FLAG_RESET
+}SPI_FlagStatus_t;
+
 typedef struct
 {
 	uint32_t Mode;					/*!< Mode Values for SPI @def_group Mode_Values						*/
@@ -86,12 +99,24 @@ typedef struct
 	uint32_t FrameFormat;			/*!< FrameFormat Values for SPI @def_group SPI_FrameFormat 			*/
 }SPI_InitTypeDef_t;
 
-typedef struct
+typedef struct __SPI_HandleTypeDef_t
 {
 	SPI_TypeDef_t *Instance;
 	SPI_InitTypeDef_t Init;
+	uint8_t *pTxDataAddr;
+	uint8_t TxDataSize;
+	uint8_t busStateTX;
+	void (*TxISRFunction) (struct __SPI_HandleTypeDef_t *SPI_Handle);
 }SPI_HandleTypeDef_t;
 
 void SPI_Init(SPI_HandleTypeDef_t *SPI_Handle);
+void SPI_PerhiparelCMD(SPI_HandleTypeDef_t *SPI_Handle, FunctionalState_t stateOfSPI);
+void SPI_TransmitData(SPI_HandleTypeDef_t *SPI_Handle, uint8_t *pData, uint16_t sizeOfData);
+void SPI_ReciveData(SPI_HandleTypeDef_t *SPI_Handle, uint8_t *pBuffer, uint16_t sizeOfData);
+void SPI_TransmitData_IT(SPI_HandleTypeDef_t *SPI_Handle, uint8_t *pData, uint16_t sizeOfData);
+void SPI_InterruptHandler(SPI_HandleTypeDef_t *SPI_Handle);
+
+SPI_FlagStatus_t SPI_GetFlagStatus(SPI_HandleTypeDef_t *SPI_Handle, uint16_t SPI_Flag);
+
 
 #endif /* INC_SPI_H_ */
