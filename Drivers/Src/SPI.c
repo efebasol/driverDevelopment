@@ -7,6 +7,39 @@
 
 #include "SPI.h"
 
+static void SPI_CloseISR_TX(SPI_HandleTypeDef_t *SPI_Handle)
+{
+	SPI_Handle->Instance->CR2 &= ~(0x1U << SPI_CR2_TXEIE);
+	SPI_Handle->TxDataSize = 0;
+	SPI_Handle->pTxDataAddr = NULL;
+	SPI_Handle->busStateTX = SPI_BUS_FREE;
+}
+
+static void SPI_TransmitHelper_16Bits(SPI_HandleTypeDef_t *SPI_Handle)
+{
+	SPI_Handle->Instance->DR = *( (uint16_t*)(SPI_Handle->pTxDataAddr) );
+	SPI_Handle->pTxDataAddr += sizeof(uint16_t);
+	SPI_Handle->TxDataSize -= 2;
+
+	if (SPI_Handle->TxDataSize == 0)
+	{
+		SPI_CloseISR_TX(SPI_Handle);
+	}
+}
+
+static void SPI_TransmitHelper_8Bits(SPI_HandleTypeDef_t *SPI_Handle)
+{
+	SPI_Handle->Instance->DR = *( (uint8_t*)(SPI_Handle->pTxDataAddr) );
+	SPI_Handle->pTxDataAddr += sizeof(uint8_t);
+	SPI_Handle->TxDataSize--;
+
+	if (SPI_Handle->TxDataSize == 0)
+	{
+		SPI_CloseISR_TX(SPI_Handle);
+	}
+}
+
+
 /*
  * @brief  SPI_Init, Configures the SPI Peripherals
  * @param  SPI_Handle = User config structure
@@ -122,6 +155,43 @@ void SPI_ReciveData(SPI_HandleTypeDef_t *SPI_Handle, uint8_t *pBuffer, uint16_t 
  * @param  SPI_Flag = flag name of SR register
  * @retval SPI_FlagStatus_t
  */
+
+void SPI_TransmitData_IT(SPI_HandleTypeDef_t *SPI_Handle, uint8_t *pData, uint16_t sizeOfData)
+{
+	SPI_BusStatus_t SPI_BusState = SPI_Handle->busStateTX;
+
+	if ( SPI_BusState != SPI_BUS_BUSY_TX )
+	{
+		SPI_Handle->pTxDataAddr = (uint8_t*)pData;
+		SPI_Handle->TxDataSize = (uint16_t)sizeOfData;
+		SPI_Handle->busStateTX = SPI_BUS_BUSY_TX;
+
+		if ( (SPI_Handle->Instance->CR1) & (0x1U << SPI_CR1_DFF) )
+		{
+			SPI_Handle->TxISRFunction = SPI_TransmitHelper_16Bits;
+		}
+		else
+		{
+			SPI_Handle->TxISRFunction = SPI_TransmitHelper_8Bits;
+		}
+
+		SPI_Handle->Instance->CR2 |= (0x1U << SPI_CR2_TXEIE);
+		SPI_Handle->busStateTX = SPI_BUS_FREE;
+	}
+}
+
+void SPI_InterruptHandler(SPI_HandleTypeDef_t *SPI_Handle)
+{
+	uint8_t InterruptSource = 0, InterruptFlag = 0;
+
+	InterruptSource = SPI_Handle->Instance->CR2 & (0x1U << SPI_CR2_TXEIE);
+	InterruptFlag = SPI_Handle->Instance->SR & (0x1U << SPI_SR_TxE);
+
+	if ( (InterruptSource != 0) && (InterruptFlag != 0) )
+	{
+		SPI_Handle->TxISRFunction(SPI_Handle);
+	}
+}
 
 SPI_FlagStatus_t SPI_GetFlagStatus(SPI_HandleTypeDef_t *SPI_Handle, uint16_t SPI_Flag)
 {

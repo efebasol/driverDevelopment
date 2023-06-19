@@ -1,5 +1,10 @@
-SPI.c:16:6:SPI_Init	1
-SPI.c:34:6:SPI_PerhiparelCMD	2
-SPI.c:54:6:SPI_TransmitData	7
-SPI.c:91:6:SPI_ReciveData	6
-SPI.c:126:18:SPI_GetFlagStatus	1
+SPI.c:10:13:SPI_CloseISR_TX	1
+SPI.c:18:13:SPI_TransmitHelper_16Bits	2
+SPI.c:30:13:SPI_TransmitHelper_8Bits	2
+SPI.c:49:6:SPI_Init	1
+SPI.c:67:6:SPI_PerhiparelCMD	2
+SPI.c:87:6:SPI_TransmitData	7
+SPI.c:124:6:SPI_ReciveData	6
+SPI.c:159:6:SPI_TransmitData_IT	3
+SPI.c:183:6:SPI_InterruptHandler	3
+SPI.c:196:18:SPI_GetFlagStatus	1

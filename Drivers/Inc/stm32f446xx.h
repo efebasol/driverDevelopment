@@ -10,6 +10,7 @@
 
 #include <stdint.h>
 #include <string.h>
+#include <stddef.h>
 
 /*
  * Microprocessor Defines
@@ -41,7 +42,8 @@ typedef enum
 	EXTI3_IRQNumber = 9,
 	EXTI4_IRQNumber = 10,
 	EXTI9_5_IRQNumber = 23,
-	EXTI15_10_IRQNumber = 40
+	EXTI15_10_IRQNumber = 40,
+	SPI1_IRQNumber = 35
 }IRQNumber_TypeDef_t;
 
 /*
@@ -325,6 +327,8 @@ typedef struct
 #define SPI4 								( (SPI_TypeDef_t*)(SPI4_BASE_ADDR) )
 
 #define SPI_CR1_SPE							(6U)
+#define SPI_CR1_DFF							(11U)
+#define SPI_CR2_TXEIE						(7U)
 #define SPI_SR_TxE 							(1U)
 #define SPI_SR_BUSY							(7U)
 #define SPI_SR_RxNE							(0U)

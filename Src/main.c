@@ -33,8 +33,13 @@ void EXTI15_10_IRQHandler()
 	{
 		EXTI->PR |= ( 0x1U << 13U );
 
-		SPI_TransmitData(&SPI_Handle, (uint8_t*)msgToSend, strlen(msgToSend));
+		SPI_TransmitData_IT(&SPI_Handle, (uint8_t*)msgToSend, strlen(msgToSend));
 	}
+}
+
+void SPI1_IRQHandler()
+{
+	SPI_InterruptHandler(&SPI_Handle);
 }
 
 int main(void)
@@ -109,6 +114,7 @@ static void SPI_Config()
 	SPI_Handle.Init.SSM_Cmd = SPI_SSM_ENABLE;
 
 	SPI_Init(&SPI_Handle);
+	NVIC_EnableInterrupt(SPI1_IRQNumber);
 
 	SPI_PerhiparelCMD(&SPI_Handle, ENABLE);
 }
